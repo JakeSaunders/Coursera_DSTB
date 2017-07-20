@@ -1,4 +1,4 @@
-# Working on ac
+# Working on activity data
 
 ## Loading the File and reading the summary
 ```{r}
@@ -6,7 +6,7 @@ data = read.csv("C:\\Users\\nilak\\Coursera_DSTB\\activity.csv")
 summary(data)
 ```
 
-##Histogram of total steps taken each day
+## Histogram of total steps taken each day
 
 ```{r}
 totalsteps = aggregate(steps~date,data,sum)
@@ -72,7 +72,7 @@ mean(totalstepsfill$totalsteps)
 median(totalstepsfill$totalsteps)
 ```
 
-##Creating the weekday variable
+## Creating the weekday variable
 
 ```{r}
 datafill$date = as.Date(datafill$date)
@@ -80,7 +80,7 @@ datafill$week = weekdays(datafill$date)
 datafill$weekfactor = ifelse(datafill$week == "Monday"|datafill$week == "Tuesday"|datafill$week == "Wednesday"|datafill$week == "Thursday"|datafill$week == "Friday" ,1,0)
 ```
 
-##Time Series Plot of the average steps taken in the 5 minute intervals on weekdays and weekends 
+## Time Series Plot of the average steps taken in the 5 minute intervals on weekdays and weekends 
 
 ```{r}
 plot(intervalsteps$interval, intervalsteps$`Avg steps`, type="l", col="green" , lwd=2)
